@@ -1,0 +1,201 @@
+:root {
+    --block-size: 30px;
+}
+
+
+html {
+    background-color: rgb(13, 24, 34);
+}
+
+body {
+    max-width: 1800px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgb(2, 11, 21); /* Temp */
+}
+
+
+@font-face {
+  font-family: "Main";
+  src: url("Asstes/Fonts/AgencyFB.TTF");
+  font-weight: normal;
+  font-style: normal;
+}
+
+p {
+    color: azure;
+    font-family: "Main";
+}
+
+
+
+.block_grid {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), var(--block-size));
+    position: relative;
+    width: fit-content;
+    height: auto;
+}
+.block_grid.entities {
+    display: grid;
+    padding-top: 50px; /* Also change in block highlight */
+    grid-template-columns: repeat(var(--columns), var(--block-size));
+    grid-template-rows: calc(var(--block-size) * 3.33);
+    grid-auto-rows: var(--block-size);
+}
+
+.block_grid * {
+    z-index: 2;
+}
+.block_grid .entity {
+    z-index: 3;
+}
+
+.block_grid p {
+    font-size: calc(var(--block-size) / 1.875);
+}
+
+
+.block_grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.block_grid.entities > img:not(.entity) {
+    grid-row: 2;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+}
+.block_grid.entities > .entity {
+    grid-row: 1;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    text-decoration: none;
+
+    width: 100%;
+    height: 100%;
+}
+.block_grid.entities > .entity > img {
+    width: 200%;
+    height: 70%;
+    top: calc(var(--block-size) / 3 * 2);
+    right: calc(var(--block-size) * 0.65);
+    position: relative;
+
+    transition: transform 0.1s ease, opacity 0.1s ease;
+}
+.block_grid.entities > .entity > img:hover {
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.8));
+    transform: scale(1.2);
+}
+.block_grid.entities > .entity > p {
+    margin: 0;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    right: calc(150px - var(--block-size)/2);
+    top: calc(var(--block-size) / 2);
+}
+
+.block_grid.entities > .highlight {
+    position: absolute;
+    z-index: 1;
+
+    width: calc(var(--block-size) * (var(--highlight-blocks) * 2 + 1));
+    height: calc(var(--block-size) / 3);
+
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+    
+    left: 50%;
+    top: calc(var(--block-size) * 4.33 + 50px);
+    transform: translateX(-50%);
+}
+.block_grid.entities > .highlight ~ .highlight {
+    top: calc(var(--block-size) * 3.05 + 50px);
+}
+.block_grid.entities > .highlight ~ .highlight ~ .highlight {
+    top: calc(var(--block-size) * 4.66 + 50px);
+    z-index: 0;
+}
+
+.block_grid.entities > .highlight > p {
+    position: relative;
+    margin: 0;
+    top: calc(var(--block-size) / 2.33);
+}
+.block_grid.entities > .highlight + .highlight > p {
+    bottom: calc(var(--block-size) * 0.76);
+    top: unset;
+}
+.block_grid.entities > .highlight + .highlight + .highlight > p {
+    position: relative;
+    margin: 0;
+    top: calc(var(--block-size) / 2.33);
+    bottom: unset;
+    left: 5px;
+}
+
+.block_grid.entities > p {
+    margin: 0;
+    position: absolute;
+    left: calc(50% + var(--block-size) / 1.2);
+    right: unset;
+    top: calc(var(--block-size) * 7.2 + 50px);
+    transform: translateY(-100%);
+    width: 300px;
+    text-align: left;
+    font-size: calc(var(--block-size) / 1.4);
+}
+.block_grid.entities > .entity + p {
+    right: 0;
+    left: unset;
+    top: calc(var(--block-size) * 2.3 + 50px);
+    transform: unset;
+    text-align: right;
+}
+
+
+
+
+
+
+/* Blocks: */
+.block_grid img.dirt {
+    content: url(https://static.wikia.nocookie.net/minecraft_gamepedia/images/3/3d/Dirt_%28texture%29_JE2_BE2.png);
+}
+
+.block_grid img.andesite {
+    content: url(https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/ff/Polished_Andesite_%28texture%29_JE2_BE2.png);
+}
+
+.block_grid img.diorite {
+    content: url(https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/de/Polished_Diorite_%28texture%29_JE2_BE2.png);
+}
+
+.block_grid img.diamond {
+    content: url(https://static.wikia.nocookie.net/minecraft_gamepedia/images/b/b4/Block_of_Diamond_%28texture%29_JE4_BE3.png);
+}
+
+
+
+/* Entities: */
+.block_grid img.villager {
+    content: url(https://minecraft.wiki/images/thumb/Plains_Villager_Base_JE2.png/181px-Plains_Villager_Base_JE2.png);
+}
+
+.block_grid img.zombie {
+    content: url(https://minecraft.wiki/images/thumb/MCE_Zombie.png/150px-MCE_Zombie.png);
+}
+
+.block_grid img.pillager {
+    content: url(https://minecraft.wiki/images/thumb/Pillager_JE3.png/150px-Pillager_JE3.png);
+    right: calc(var(--block-size)) !important;
+}
+
+.block_grid img.iron_golem {
+    content: url(https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/02/Iron_Golem_JE2_BE2.png);
+    height: 100% !important;
+    right: calc(var(--block-size) * 0.5) !important;
+}
