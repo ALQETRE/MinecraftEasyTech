@@ -8,10 +8,10 @@ html {
 }
 
 body {
-    max-width: 1800px;
+    max-width: 1600px;
     width: 100%;
     margin: 0 auto;
-    background-color: rgb(2, 11, 21); /* Temp */
+    /* background-color: rgb(2, 11, 21); Temp */
 }
 
 
@@ -25,6 +25,7 @@ body {
 p {
     color: azure;
     font-family: "Main";
+    margin: 0;
 }
 
 
@@ -91,7 +92,6 @@ p {
     transform: scale(1.2);
 }
 .block_grid.entities > .entity > p {
-    margin: 0;
     width: 300px;
     text-align: center;
     position: relative;
@@ -122,7 +122,6 @@ p {
 
 .block_grid.entities > .highlight > p {
     position: relative;
-    margin: 0;
     top: calc(var(--block-size) / 2.33);
 }
 .block_grid.entities > .highlight + .highlight > p {
@@ -130,15 +129,12 @@ p {
     top: unset;
 }
 .block_grid.entities > .highlight + .highlight + .highlight > p {
-    position: relative;
-    margin: 0;
     top: calc(var(--block-size) / 2.33);
     bottom: unset;
     left: 5px;
 }
 
 .block_grid.entities > p {
-    margin: 0;
     position: absolute;
     left: calc(50% + var(--block-size) / 1.2);
     right: unset;
@@ -155,10 +151,6 @@ p {
     transform: unset;
     text-align: right;
 }
-
-
-
-
 
 
 /* Blocks: */
@@ -198,4 +190,158 @@ p {
     content: url(https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/02/Iron_Golem_JE2_BE2.png);
     height: 100% !important;
     right: calc(var(--block-size) * 0.5) !important;
+}
+
+.block_grid img.zoglin {
+    content: url(https://minecraft.wiki/images/Zoglin_JE1.png);
+    width: 270% !important;
+    right: calc(var(--block-size) * 1.1) !important;
+    top: calc(var(--block-size) / 4 * 3) !important;
+}
+
+
+
+
+
+
+
+.timeline {
+    display: flex;
+    flex-direction: row;
+
+    margin: 50px 0px;
+
+    padding-top: 50px;
+
+    height: calc(var(--size) / 30);
+    width: var(--size);
+
+    position: relative;
+}
+
+.timeline > .block {
+    height: 100%;
+    width: 100%;
+
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+
+    flex: 1;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.timeline > .block:nth-child(3n + 1) {
+    background-color: rgb(55, 120, 190);
+}
+.timeline > .block:nth-child(3n + 2) {
+    background-color: rgb(87, 140, 197);
+}
+.timeline > .block:nth-child(3n) {
+    background-color: rgb(128, 169, 212);
+}
+
+.timeline > .block::before {
+    content: "";
+    position: absolute;
+    height: 150%;
+    width: calc(var(--size) / 225);
+    background-color: azure;
+    transform: translateX(-50%);
+    bottom: -7%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.timeline > .block::after {
+    content: "";
+    position: absolute;
+    height: 150%;
+    width: calc(var(--size) / 225);
+    background-color: azure;
+    transform: translateX(50%);
+    right: 0;
+    bottom: -7px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.timeline > .block > p {
+    width: 100%;
+    text-align: center;
+    font-size: calc(var(--size) / 56);
+}
+
+.timeline > .timespan {
+    position: absolute;
+
+    height: calc(var(--size) / 60);
+    width: calc(var(--duration) / var(--total) * 100%);
+    left: calc(var(--start) / var(--total) * 100%);
+
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.8);
+}
+
+.timeline > .timespan.level_1 {
+    bottom: calc(var(--size) / 13.3);
+}
+.timeline > .timespan.level_2 {
+    bottom: calc(var(--size) / 13.3 + var(--size) / 72);
+}
+.timeline > .timespan.level_3 {
+    bottom: calc(var(--size) / 13.3 + var(--size) / 36);
+}
+
+.timeline > .timespan > img {
+    width: calc(var(--size) / 17.5);
+    height: calc(var(--size) / 17.5);
+    object-fit: contain;
+
+    position: absolute;
+
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
+
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.timeline > .timespan > img.start {
+    left: 0;
+    right: unset;
+    transform: translate(-50%, -50%);
+}
+.timeline > .timespan > img.end {
+    left: unset;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+
+.timeline > .legend {
+    position: absolute;
+    display: flex;
+
+    flex-direction: column;
+    gap: calc(var(--size) / 50);
+
+    right: calc(var(--size) / 10);
+    bottom: calc(var(--size) / 15);
+}
+
+.timeline > .legend > div {
+    width: calc(var(--size) / 67);
+    height: calc(var(--size) / 67);
+
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.timeline > .legend > div > p {
+    position: relative;
+    left: calc(var(--size) / 48);
+    width: 200px;
+    transform: translateY(-25%);
+    font-size: calc(var(--size) / 44.6);
+}
+
+p.text {
+    font-size: 24px;
 }

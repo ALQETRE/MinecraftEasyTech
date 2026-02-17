@@ -8,15 +8,20 @@
     <link rel="icon" type="image/png" href="Asstes/Images/minecraft_logo.png">
 </head>
 
-<body>
-    <div class="block_grid entities" style="--columns: 33; --block-size: 35px;">
+<body style="padding: 20px;">
+    <div class="block_grid entities" style="--columns: 33; --block-size: 35px; margin-bottom: 200px;">
 
         <div class="entity" style="grid-column-start: 17;"> <p>Villager Cluster</p><img class="villager"> </div>
-        <a href="" class="entity" style="grid-column-start: 25"> <p>8b</p><img class="zombie"> </a>
-        <a href="" class="entity" style="grid-column-start: 2"> <p>15b</p><img class="pillager"> </a>
-        <a href="" class="entity" style="grid-column-start: 9"> <p>8b</p> <img class="iron_golem"> </a>
+        <a href="https://minecraft.wiki/w/Iron_Golem#Spawning" class="entity" style="grid-column-start: 25">
+            <p>8b</p><img class="iron_golem"> </a>
+        <a href="https://minecraft.wiki/w/Villager#Panicking" class="entity" style="grid-column-start: 9">
+            <p>8b</p> <img class="zombie"> </a>
+        <a href="https://minecraft.wiki/w/Villager#Panicking" class="entity" style="grid-column-start: 7">
+            <p>10b</p> <img class="zoglin"> </a>
+        <a href="https://minecraft.wiki/w/Villager#Panicking" class="entity" style="grid-column-start: 2">
+            <p>15b</p><img class="pillager"> </a>
 
-        <p>Detection Range</p>
+        <p>Detection Range - 16b</p>
 
         <img class="diorite">
         <img class="andesite">
@@ -56,10 +61,33 @@
         <img class="diorite" style="grid-row: 4; grid-column: 17;">
         <img class="andesite" style="grid-row: 5; grid-column: 17;">
 
-        <div class="highlight" style="background-color: rgb(84, 234, 57); --highlight-blocks: 10;"><p>Detection range</p></div>
-        <div class="highlight" style="background-color: rgb(226, 59, 59); --highlight-blocks: 8;"><p style="left: 60px;">Spawn Range</p></div>
+        <div class="highlight" style="background-color: rgb(84, 234, 57); --highlight-blocks: 10;"><p>Other Villager Detection Range</p></div>
+        <div class="highlight" style="background-color: rgb(226, 59, 59); --highlight-blocks: 8;"><p style="right: 60px; text-align: right;">Spawn Range</p></div>
 
-        <p>halo<br>hello2</p>
+        <p>Spawn Range - 6b<br>Detection Range - 16b</p>
+    </div>
+
+    <p class="text">Iron Golem Check - 10s (200gt)<br>Timeout - 30s (600gt)</p>
+
+    <div class="timeline" style="--total: 60; --size: 1155px; margin: 150px 0;">
+        <div class="block"><p>10s (200gt)</p></div>
+        <div class="block"><p>10s (200gt)</p></div>
+        <div class="block"><p>10s (200gt)</p></div>
+        <div class="block"><p>10s (200gt)</p></div>
+        <div class="block"><p>10s (200gt)</p></div>
+        <div class="block"><p>10s (200gt)</p></div>
+
+        <div class="timespan level_1" style="background-color: rgb(84, 234, 57); --start: 10; --duration: 30;">
+            <img class="end" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/02/Iron_Golem_JE2_BE2.png" alt="">
+        </div>
+        <div class="timespan level_2" style="background-color: rgb(234, 57, 57); --start: 7; --duration: 10;">
+            <img class="start" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/02/Iron_Golem_JE2_BE2.png" alt="">
+        </div>
+
+        <div class="legend">
+            <div style="background-color: rgb(84, 234, 57);"><p>- Timeout</p></div>
+            <div style="background-color: rgb(234, 57, 57);"><p>- Time to kill</p></div>
+        </div>
     </div>
 </body>
 </html>
